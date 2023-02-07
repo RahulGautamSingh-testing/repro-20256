@@ -9,7 +9,8 @@
       "fileMatch": ["meltano\\.yml$"],
       "matchStrings": ["pip_url:\\spsycopg2-binary\\s(?<depName>.*?)==(?<currentValue>.*?)\\s--constraint\\shttps://raw\\.githubusercontent\\.com/apache/airflow/constraints-2\\.3\\.3/constraints-\\${MELTANO__PYTHON_VERSION}\\.txt"],
       "datasourceTemplate": "pypi",
-      "depNameTemplate": "apache-airflow"
+      "depNameTemplate": "apache-airflow",
+      "autoReplaceStringTemplate": "pip_url: psycopg2-binary {{depName}}=={{newValue}} --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-${MELTANO__PYTHON_VERSION}.txt",
     }
   ]
 }
