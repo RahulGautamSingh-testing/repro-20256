@@ -1,2 +1,2 @@
 
-pip_url: psycopg2-binary apache-airflow==2.3.3 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-${MELTANO__PYTHON_VERSION}.txt
+pip_url: psycopg2-binary apache-airflow==2.5.1 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-${MELTANO__PYTHON_VERSION}.txt
