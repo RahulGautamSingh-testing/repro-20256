@@ -4,13 +4,15 @@
     "config:base"
   ],
   "rebaseWhen": "behind-base-branch",
+ {
   "regexManagers": [
     {
-      "fileMatch": ["meltano\\.yml$"],
-      "matchStrings": ["pip_url:\\spsycopg2-binary\\s(?<depName>.*?)==(?<currentValue>.*?)\\s--constraint\\shttps://raw\\.githubusercontent\\.com/apache/airflow/constraints-2\\.3\\.3/constraints-\\${MELTANO__PYTHON_VERSION}\\.txt"],
-      "datasourceTemplate": "pypi",
-      "depNameTemplate": "apache-airflow",
-      "autoReplaceStringTemplate": "pip_url: psycopg2-binary {{depName}}=={{newValue}} --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-${MELTANO__PYTHON_VERSION}.txt",
+      "fileMatch": ["^tools/(.*)/values.ya?ml$"],
+      "matchStrings": [
+        "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s*-\\s\\\".*\\/(?<currentValue>v?[\\d\\.]*)\\/.*-(?<currentValue2>[\\d\\.]*).jar\\\""
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
+}
 }
